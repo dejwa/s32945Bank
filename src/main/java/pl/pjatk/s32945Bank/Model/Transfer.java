@@ -34,4 +34,13 @@ public class Transfer {
     public void declineStatus() {
         this.status = Status.DECLINED;
     }
+    public void insuficientStatus() {
+        this.status = Status.DECLINED_INSUFFICIENT;
+    }
+    public void notFoundStatus() {
+        this.status = Status.DECLINED_NOT_FOUND;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

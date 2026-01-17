@@ -1,6 +1,7 @@
 package pl.pjatk.s32945Bank.Class;
 
 import org.springframework.stereotype.Component;
+import pl.pjatk.s32945Bank.Model.Status;
 import pl.pjatk.s32945Bank.Model.Transfer;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class TransferStorage {
     }
     public void removeTransfer(int id) {
         this.transfers.stream().filter( t -> t.getId() == id ).findFirst().ifPresent( t-> this.transfers.remove(t) );
+    }
+    public void removeDeclined() {
+        this.transfers.removeIf( t -> t.getStatus() == Status.DECLINED );
     }
 
     public ArrayList<Transfer> getTransfers() {

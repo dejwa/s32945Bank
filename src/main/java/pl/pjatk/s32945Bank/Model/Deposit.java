@@ -5,11 +5,11 @@ public class Deposit {
     private double amount;
     private Status status;
 
-    public Deposit(int id, int id_client, double amount, Status status) {
+    public Deposit(int id, int id_client, double amount) {
         this.id = id;
         this.id_client = id_client;
         this.amount = amount;
-        this.status = status;
+        this.status = Status.PENDING;
     }
 
     public int getId() {
@@ -32,5 +32,14 @@ public class Deposit {
     }
     public void declineStatus() {
         this.status = Status.DECLINED;
+    }
+    public void insuficientStatus() {
+        this.status = Status.DECLINED_INSUFFICIENT;
+    }
+    public void notFoundStatus() {
+        this.status = Status.DECLINED_NOT_FOUND;
+    }
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

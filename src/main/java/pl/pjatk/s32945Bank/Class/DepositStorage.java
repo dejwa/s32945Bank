@@ -19,8 +19,8 @@ public class DepositStorage {
         this.deposits.add(deposit);
         return deposit;
     }
-    public Deposit addDeposit(int id_client, double amount, Status status) {
-        Deposit d = new Deposit(idCounter++, id_client, amount, status);
+    public Deposit addDeposit(int id_client, double amount) {
+        Deposit d = new Deposit(idCounter++, id_client, amount);
         this.deposits.add(d);
         return d;
     }
@@ -30,6 +30,9 @@ public class DepositStorage {
     }
     public void removeDeposit(int id) {
         this.deposits.stream().filter( d -> d.getId() == id ).findFirst().ifPresent( d-> this.deposits.remove(d) );
+    }
+    public void removeDeclined() {
+        this.deposits.removeIf( d -> d.getStatus() == Status.DECLINED );
     }
 
     public ArrayList<Deposit> getDeposits() {
