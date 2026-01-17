@@ -33,7 +33,7 @@ public class TransferStorage {
         this.transfers.stream().filter( t -> t.getId() == id ).findFirst().ifPresent( t-> this.transfers.remove(t) );
     }
     public void removeDeclined() {
-        this.transfers.removeIf( t -> t.getStatus() == Status.DECLINED );
+        this.transfers.removeIf( t -> t.getStatus() == Status.DECLINED || t.getStatus() == Status.DECLINED_INSUFFICIENT || t.getStatus() == Status.DECLINED_NOT_FOUND );
     }
 
     public ArrayList<Transfer> getTransfers() {

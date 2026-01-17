@@ -32,7 +32,7 @@ public class DepositStorage {
         this.deposits.stream().filter( d -> d.getId() == id ).findFirst().ifPresent( d-> this.deposits.remove(d) );
     }
     public void removeDeclined() {
-        this.deposits.removeIf( d -> d.getStatus() == Status.DECLINED );
+        this.deposits.removeIf( d -> d.getStatus() == Status.DECLINED || d.getStatus() == Status.DECLINED_INSUFFICIENT || d.getStatus() == Status.DECLINED_NOT_FOUND );
     }
 
     public ArrayList<Deposit> getDeposits() {

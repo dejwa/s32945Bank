@@ -9,7 +9,7 @@ import java.util.Optional;
 @Component
 public class ClientStorage {
     private ArrayList<Client> clients;
-    private int idCounter;
+    private int idCounter = 1;
 
     public ClientStorage() {
         this.clients = new ArrayList<>();

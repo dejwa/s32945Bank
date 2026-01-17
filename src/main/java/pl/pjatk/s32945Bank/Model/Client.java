@@ -35,5 +35,9 @@ public class Client {
         this.balance -= amount;
     }
 
+    @Override
+    public String toString() {
+        return this.name + " " + this.surname + " " + String.valueOf(this.balance);
+    }
 
 }
