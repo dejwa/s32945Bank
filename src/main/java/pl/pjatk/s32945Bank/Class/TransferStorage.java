@@ -1,9 +1,11 @@
 package pl.pjatk.s32945Bank.Class;
 
+import org.springframework.stereotype.Component;
 import pl.pjatk.s32945Bank.Model.Transfer;
 
 import java.util.ArrayList;
 
+@Component
 public class TransferStorage {
     private ArrayList<Transfer> transfers;
     private int idCounter = 1;
@@ -30,4 +32,7 @@ public class TransferStorage {
         this.transfers.stream().filter( t -> t.getId() == id ).findFirst().ifPresent( t-> this.transfers.remove(t) );
     }
 
+    public ArrayList<Transfer> getTransfers() {
+        return transfers;
+    }
 }
